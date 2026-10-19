@@ -1,11 +1,13 @@
-Drop files anywhere on a bb thread to attach them.
+Drop or paste files anywhere on a bb thread to attach them, without duplicating them on disk.
 
 ## What you get
 
-- Drop on the composer or anywhere in the thread or new-thread page; the composer outlines while you drag.
-- A toast for every file that couldn't be attached, saying why.
-- Files over bb's 10 MB (images) and 25 MB (other files) attachment limit, like videos, are saved on this machine and attached by path.
+- Files that already exist on this Mac are attached by path: no copy, no extra storage. The plugin finds the original with Spotlight and checks it by content before linking it.
+- Items that aren't files on this Mac (Telegram, Photos, Mail, browser images, pasted screenshots) get one temporary copy, deleted after 2 days, with a size cap.
+- A toast for every file: "Linked original" or "Temporary copy — deleted in 2 days", plus the reason.
+- Drop on the composer or anywhere in the thread or new-thread page. Pasting files into the composer works too.
+- An optional Finder Quick Action, "Send to bb", attaches selected files by path: `bb composer-dropzone install-quick-action`.
 
 ## How it works
 
-Small files use bb's own attachment upload. Large files are saved under this plugin's data folder and cleaned up after 14 days. Nothing leaves the machine, and the plugin needs no account, API key or external service.
+The app fingerprints each dropped file (sha256 of start, middle and end samples, plus size). The server searches Spotlight for that name and size and links a file only when its fingerprint matches. Anything else streams once into the plugin's own folder. Nothing leaves the machine, and the plugin needs no account, API key or external service.

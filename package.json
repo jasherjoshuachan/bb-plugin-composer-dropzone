@@ -1,6 +1,6 @@
 {
   "name": "bb-plugin-composer-dropzone",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "type": "module",
   "engines": {
     "bb": ">=0.46",
@@ -8,7 +8,7 @@
   },
   "bb": {
     "name": "Composer Dropzone",
-    "description": "Drop files on the composer or anywhere in a thread to attach them. Shows an error when an upload fails, and attaches files over bb's 10/25 MB limit (like videos) by saving them on this machine.",
+    "description": "Drop or paste files anywhere on a thread to attach them. Files already on this Mac are linked by path (no copy); anything else gets one temporary copy, deleted after 2 days. Includes a Finder \"Send to bb\" Quick Action.",
     "branding": {
       "icon": "Paperclip"
     },
@@ -46,17 +46,19 @@
     "typescript": "^5.7.0",
     "vaul": "^1.1.2"
   },
-  "description": "Drop files anywhere on a bb thread to attach them, with clear errors and large-file support.",
+  "description": "Drop or paste files anywhere on a bb thread to attach them: originals linked by path, one temporary copy otherwise.",
   "license": "MIT",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/jasherjoshuachan/bb-plugin-composer-dropzone.git"
   },
   "keywords": [
+    "attachments",
     "bb",
     "bb-plugin",
     "drag-and-drop",
-    "attachments"
+    "quick-action",
+    "spotlight"
   ],
   "scripts": {
     "typecheck": "tsc -p .",
